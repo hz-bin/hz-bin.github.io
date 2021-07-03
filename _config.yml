@@ -1,0 +1,49 @@
+# Site
+name: "我的博客"
+title: "我的博客"
+google_analytics: 'UA-46278016-1'
+mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
+include: ["_pages"]
+permalink: /:title/
+
+# Authors
+authors:
+  wangbin:
+    name: wangbin
+    display_name: wangbin
+    email: wangbinzjut@126.com
+    web: https://wangbin8909.github.io/
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-archives
+
+# Archives
+jekyll-archives:
+  enabled:
+    - categories
+  layout: archive
+  permalinks:
+    category: '/category/:name/'
+
+# Pagination
+paginate: 6
+paginate_path: /page:num/
+
+# Other
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
+# Lazy Images ("enabled" or "disabled")
+lazyimages: "true"
+
+exclude: [changelog.md, LICENSE.txt, README.md, Gemfile, Gemfile.lock]
