@@ -3,7 +3,6 @@ layout: post
 title:  "算法框架模版"
 author: wangbin
 categories: [ 数据结构和算法 ]
-image: assets/images/13.jpg
 ---
 
 ## BFS算法框架
@@ -186,7 +185,7 @@ def backtrack(路径, 选择列表):
 ### 前缀和
 - 前缀和主要适用的场景是原始数组不会被修改的情况下，频繁查询某个区间的累加和
 
-![image](../image/前缀和.jpg)
+![image](/assets/images/前缀和.jpg)
 
 ```
 class PrefixSum {

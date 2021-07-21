@@ -3,7 +3,6 @@ layout: post
 title:  "Zookeeper"
 author: wangbin
 categories: [ 系统架构设计 ]
-image: assets/images/13.jpg
 ---
 
 ## 什么是Zookeeper

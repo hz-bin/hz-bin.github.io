@@ -3,10 +3,9 @@ layout: post
 title:  "计算机网络"
 author: wangbin
 categories: [ 计算机基础知识 ]
-image: assets/images/15.jpg
 ---
 
-![image](../image/tcp报文格式.jpg)
+![image](/assets/images/tcp报文格式.jpg)
 **<center>TCP报文格式</center>**
 
 ## 1、OSI七层模型、TCP/IP四层
@@ -39,7 +38,7 @@ image: assets/images/15.jpg
 
 ## 3、TCP协议3次握手、4次挥手
 
-![image](../image/tcp建立连接3次握手.jpg)
+![image](/assets/images/tcp建立连接3次握手.jpg)
 **<center>TCP协议3次握手</center>**
 
 三次握手最主要的目的就是**双方确认自己与对方的发送与接收是正常的**
@@ -55,7 +54,7 @@ image: assets/images/15.jpg
 - 失败时会超时重传SYN+ACK，重传次数根据 `/proc/sys/net/ipv4/tcp_synack_retries` 来指定，默认是5次。如果重传指定次数到了后，仍然未收到ACK应答，会给客户端发RST报文，进入CLOSED状态，这个时候客户端应该也会关闭连接。
 
 ### 3.3、TCP四次挥手
-![image](../image/tcp断开连接4次挥手.jpg)
+![image](/assets/images/tcp断开连接4次挥手.jpg)
 **<center>TCP协议4次挥手</center>**
 
 - **CLOSE-WAIT 状态问题**：客户端发送了 FIN 连接释放报文之后，服务器收到了这个报文，就进入了 CLOSE-WAIT 状态。这个状态是为了让服务器端发送还未传送完毕的数据，传送完毕之后，服务器会发送FIN 连接释放报文。
@@ -118,16 +117,16 @@ https://juejin.im/post/6861491957534261255
 - **利用滑动窗口实现流量控制**，滑动窗口以字节为单位。
 - TCP 首部中带有窗口大小字段，在返回 ACK 时，就会带上这个字段，接收端接收到了这个字段后，就对会自己的窗口大小进行更新（滑动）
 
-![image](../image/滑动窗口.jpg)
+![image](/assets/images/滑动窗口.jpg)
 **<center>滑动窗口</center>**
 
-![image](../image/滑动窗口发送.jpg)
+![image](/assets/images/滑动窗口发送.jpg)
 **<center>滑动窗口发送</center>**
 
 ### 5.3、拥塞控制
-![image](../image/慢开始和拥塞避免算法.jpg)
+![image](/assets/images/慢开始和拥塞避免算法.jpg)
 **<center>慢开始与拥塞避免算法</center>**
-![image](../image/拥塞窗口大小.jpg)
+![image](/assets/images/拥塞窗口大小.jpg)
 **<center>拥塞窗口大小</center>**
 - **拥塞**是由于网络中的路由器由于超载而引起的严重延迟现象，拥塞的发生会造成数据丢失，进而引发超时重传，而超时重传又会进一步加剧拥塞，如果不进行控制，最终会导致整个网络的瘫痪。
 - 拥塞控制主要通过利用发送窗口限制数据流的速度，减缓注入网络的数据流量后，拥塞自然就会解除。
@@ -209,7 +208,7 @@ https://juejin.im/post/6861491957534261255
     - 使用 TCP 长连接的方式改善了 HTTP/1.0 短连接造成的性能开销。
     - 支持 管道（pipeline）网络传输，只要第一个请求发出去了，不必等其回来，就可以发第二个请求出去，可以减少整体的响应时间。
 
-![image](../image/http请求报文.jpg)
+![image](/assets/images/http请求报文.jpg)
 
 ```
 POST /index.html HTTP/1.1
@@ -219,7 +218,7 @@ User-Agent: Mozilla/5.0(Windows NT 6.1;rv:15.0) Firefox/15.0
 Username=admin&password=admin
 ```
 
-![image](../image/http响应报文.jpg)
+![image](/assets/images/http响应报文.jpg)
 
 ```
 HTTP/1.1 200 OK

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/assets/images/logo.png">
+
+    <title>Zookeeper | 我的博客</title>
+
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Zookeeper | 我的博客</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Zookeeper" />
+<meta name="author" content="wangbin" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="什么是Zookeeper" />
+<meta property="og:description" content="什么是Zookeeper" />
+<meta property="og:site_name" content="我的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-09T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Zookeeper" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"/Zookeeper/"},"@type":"BlogPosting","url":"/Zookeeper/","author":{"@type":"Person","name":"wangbin"},"headline":"Zookeeper","dateModified":"2021-02-09T00:00:00+08:00","datePublished":"2021-02-09T00:00:00+08:00","description":"什么是Zookeeper","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link href="/assets/css/screen.css" rel="stylesheet">
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+
+    <script src="/assets/js/jquery.min.js"></script>
+
+    <!--Google AdSense-->
+    <script data-ad-client="ca-pub-2634554394736764" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1HYH43B3ZQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-1HYH43B3ZQ');
+</script>
+
+
+
+<body class="layout-post">
+    <!-- defer loading of font and font awesome -->
+    <noscript id="deferred-styles">
+        <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+            integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    </noscript>
+
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <span class="fs-4">我的博客</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="/index.html" class="nav-link active" aria-current="page">首页</a></li>
+                <li class="nav-item"><a href="/categories" class="nav-link">分类</a></li>
+                <li class="nav-item"><a href="/about" class="nav-link">关于</a></li>
+                <li class="nav-item"><a href="https://github.com/wangbin8909/wangbin8909.github.io" class="nav-link"><i
+                    class="fab fa-github"></i></a></li>
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="搜索"/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </header>
+    </div>
+
+
+    <!-- Begin Menu Navigation
+================================================== -->
+
+    <!-- End Navigation
+================================================== -->
+
+    <div class="site-content">
+
+        <div class="container">
+
+            <!-- Content
+================================================== -->
+            <div class="main-content">
+                <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-3 pl-0">
+            <div class="sticky-top sticky-top-offset">
+                <p>
+                    <ul id="my_toc" class="inline_toc">
+  <li><a href="#什么是zookeeper">什么是Zookeeper</a>
+    <ul>
+      <li><a href="#zookeeper的一致性">Zookeeper的一致性</a></li>
+      <li><a href="#zookeeper的应用">Zookeeper的应用</a></li>
+    </ul>
+  </li>
+  <li><a href="#什么是分布式锁">什么是分布式锁</a></li>
+  <li><a href="#如何用zookeeper实现分布式锁">如何用Zookeeper实现分布式锁</a>
+    <ul>
+      <li><a href="#znode分为四种类型">Znode分为四种类型：</a></li>
+      <li><a href="#zookeeper分布式锁的原理">Zookeeper分布式锁的原理</a></li>
+    </ul>
+  </li>
+  <li><a href="#zookeeper如何保证数据一致性">Zookeeper如何保证数据一致性</a></li>
+</ul>
+                </p>
+            </div>
+
+
+        </div>
+
+        <!-- Post -->
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+                <!-- Post Title -->
+                <h1 class="posttitle">Zookeeper</h1>
+                <span id="busuanzi_container_page_pv">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+            </div>
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <h2 id="什么是zookeeper">什么是Zookeeper</h2>
+
+<p>https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&amp;mid=2653193977&amp;idx=1&amp;sn=12319f8cb81f55a40ac461bd0ad9d74e&amp;chksm=8c99f423bbee7d35056ce7ec1b321f33aad15c309de6eba0086cb31a48b975ccb1d695d5a251&amp;scene=21#wechat_redirect</p>
+
+<ul>
+  <li>Zookeeper是一个分布式协调服务，可以在分布式系统中共享配置，协调锁资源，提供命名服务。</li>
+  <li>Zookeeper的数据模型很像数据结构当中的树，也很像文件系统的目录。</li>
+  <li>Zookeeper的数据存储基于节点，这种节点叫做Znode。Znode包含了数据、子节点引用、访问权限等等。
+    <ul>
+      <li>data：Znode存储的数据信息。</li>
+      <li>ACL：记录Znode的访问权限，即哪些人或哪些IP可以访问本节点。</li>
+      <li>stat：包含Znode的各种元数据，比如事务ID、版本号、时间戳、大小等等。</li>
+      <li>child：当前节点的子节点引用，类似于二叉树的左孩子右孩子。</li>
+    </ul>
+  </li>
+  <li>Zookeeper是为读多写少的场景所设计。Znode并不是用来存储大规模业务数据，而是用于存储少量的状态和配置信息，每个节点的数据最大不能超过1MB。</li>
+  <li>Zookeeper包含的基本操作：
+    <ul>
+      <li>create：创建节点</li>
+      <li>delete：删除节点</li>
+      <li>exists：判断节点是否存在</li>
+      <li>getData：获得一个节点的数据</li>
+      <li>setData：设置一个节点的数据</li>
+      <li>getChildren：获取节点下的所有子节点</li>
+    </ul>
+  </li>
+  <li>Zookeeper客户端在请求读操作的时候，可以选择是否设置Watch。Watch可以理解成是注册在特定Znode上的触发器。当这个Znode发生改变，也就是调用了create，delete，setData方法的时候，将会触发Znode上注册的对应事件，请求Watch的客户端会接收到异步通知。</li>
+</ul>
+
+<h3 id="zookeeper的一致性">Zookeeper的一致性</h3>
+<ul>
+  <li>Zookeeper Service集群是一主多从结构。</li>
+  <li>在更新数据时，首先更新到主节点（这里的节点是指服务器，不是Znode），再同步到从节点。</li>
+  <li>在读取数据时，直接读取任意从节点。</li>
+  <li>为了保证主从节点的数据一致性，Zookeeper采用了ZAB（ZooKeeper Atomic Broadcast）协议，这种协议非常类似于一致性算法Paxos和Raft。</li>
+  <li>ZAB协议所定义的三种节点状态：
+    <ul>
+      <li>Looking ：选举状态。</li>
+      <li>Following ：Follower节点（从节点）所处的状态。</li>
+      <li>Leading ：Leader节点（主节点）所处状态。</li>
+    </ul>
+  </li>
+  <li>最大ZXID也就是节点本地的最新事务编号，包含epoch和计数两部分。epoch是纪元的意思，相当于Raft算法选主时候的term。</li>
+</ul>
+
+<h4 id="zab的崩溃恢复">ZAB的崩溃恢复</h4>
+<ul>
+  <li>假如Zookeeper当前的主节点挂掉了，集群会进行崩溃恢复。ZAB的崩溃恢复分成三个阶段：</li>
+</ul>
+
+<h5 id="1leader-election">1、Leader election</h5>
+<ul>
+  <li>选举阶段，此时集群中的节点处于Looking状态。它们会各自向其他节点发起投票，投票当中包含自己的服务器ID和最新事务ID（ZXID）。</li>
+  <li>接下来，节点会用自身的ZXID和从其他节点接收到的ZXID做比较，如果发现别人家的ZXID比自己大，也就是数据比自己新，那么就重新发起投票，投票给目前已知最大的ZXID所属节点。</li>
+  <li>每次投票后，服务器都会统计投票数量，判断是否有某个节点得到半数以上的投票。如果存在这样的节点，该节点将会成为准Leader，状态变为Leading。其他节点的状态变为Following。</li>
+</ul>
+
+<h5 id="2discovery">2、Discovery</h5>
+<ul>
+  <li>发现阶段，用于在从节点中发现最新的ZXID和事务日志。或许有人会问：既然Leader被选为主节点，已经是集群里数据最新的了，为什么还要从节点中寻找最新事务呢？</li>
+  <li>这是为了防止某些意外情况，比如因网络原因在上一阶段产生多个Leader的情况。</li>
+  <li>所以这一阶段，Leader集思广益，接收所有Follower发来各自的最新epoch值。Leader从中选出最大的epoch，基于此值加1，生成新的epoch分发给各个Follower。</li>
+  <li>各个Follower收到全新的epoch后，返回ACK给Leader，带上各自最大的ZXID和历史事务日志。Leader选出最大的ZXID，并更新自身历史日志。</li>
+</ul>
+
+<h5 id="3synchronization">3.Synchronization</h5>
+<ul>
+  <li>同步阶段，把Leader刚才收集得到的最新历史事务日志，同步给集群中所有的Follower。只有当半数Follower同步成功，这个准Leader才能成为正式的Leader。</li>
+  <li>自此，故障恢复正式完成。</li>
+</ul>
+
+<h4 id="broadcast">Broadcast</h4>
+<ul>
+  <li>什么是Broadcast呢？简单来说，就是Zookeeper常规情况下更新数据的时候，由Leader广播到所有的Follower。其过程如下：</li>
+  <li>1.客户端发出写入数据请求给任意Follower。</li>
+  <li>2.Follower把写入数据请求转发给Leader。</li>
+  <li>3.Leader采用二阶段提交方式，先发送Propose广播给Follower。</li>
+  <li>4.Follower接到Propose消息，写入日志成功后，返回ACK消息给Leader。</li>
+  <li>5.Leader接到半数以上ACK消息，返回成功给客户端，并且广播Commit请求给Follower。</li>
+</ul>
+
+<p>Zab协议既不是强一致性，也不是弱一致性，而是处于两者之间的单调一致性。它依靠事务ID和版本号，保证了数据的更新和读取是有序的。</p>
+
+<h3 id="zookeeper的应用">Zookeeper的应用</h3>
+<ul>
+  <li>1.分布式锁：这是雅虎研究员设计Zookeeper的初衷。利用Zookeeper的临时顺序节点，可以轻松实现分布式锁。</li>
+  <li>2.服务注册和发现：利用Znode和Watcher，可以实现分布式服务的注册和发现。最著名的应用就是阿里的分布式RPC框架Dubbo。</li>
+  <li>3.共享配置和状态信息：Redis的分布式解决方案Codis，就利用了Zookeeper来存放数据路由表和 codis-proxy 节点的元信息。同时 codis-config 发起的命令都会通过 ZooKeeper 同步到各个存活的 codis-proxy。</li>
+  <li>此外，Kafka、HBase、Hadoop，也都依靠Zookeeper同步节点信息，实现高可用。</li>
+</ul>
+
+<h2 id="什么是分布式锁">什么是分布式锁</h2>
+<p>http://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&amp;mid=2653194065&amp;idx=1&amp;sn=1baa162e40d48ce9b44ea5c4b2c71ad7&amp;chksm=8c99f58bbbee7c9d5b5725da5ee38fe0f89d7a816f3414806785aea0fe5ae766769600d3e982&amp;scene=21#wechat_redirect</p>
+<ul>
+  <li>Redis分布式锁：<code class="language-plaintext highlighter-rouge">set keyname val ex 5 nx</code>，当keyname不存在时，设置key，过期时间是5秒</li>
+</ul>
+
+<h2 id="如何用zookeeper实现分布式锁">如何用Zookeeper实现分布式锁</h2>
+<p>http://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&amp;mid=2653194140&amp;idx=1&amp;sn=07b65a50798c26ecdc0fc555128ab937&amp;chksm=8c99f546bbee7c50b1642dc971cb1f5e244dce661546e141734797c8c23c6c3ad779dfb57d3b&amp;scene=21#wechat_redirect</p>
+
+<h3 id="znode分为四种类型">Znode分为四种类型：</h3>
+<ul>
+  <li>1.持久节点 （PERSISTENT）：默认的节点类型。创建节点的客户端与zookeeper断开连接后，该节点依旧存在 。</li>
+  <li>2.持久节点顺序节点（PERSISTENT_SEQUENTIAL）：所谓顺序节点，就是在创建节点时，Zookeeper根据创建的时间顺序给该节点名称进行编号</li>
+  <li>3.临时节点（EPHEMERAL）：和持久节点相反，当创建节点的客户端与zookeeper断开连接后，临时节点会被删除。</li>
+  <li>4.临时顺序节点（EPHEMERAL_SEQUENTIAL）：临时顺序节点结合和临时节点和顺序节点的特点：在创建节点时，Zookeeper根据创建的时间顺序给该节点名称进行编号；当创建节点的客户端与zookeeper断开连接后，临时节点会被删除。</li>
+</ul>
+
+<h3 id="zookeeper分布式锁的原理">Zookeeper分布式锁的原理</h3>
+<p>Zookeeper分布式锁恰恰应用了临时顺序节点。具体如何实现呢？让我们来看一看详细步骤：</p>
+
+<h4 id="获取锁">获取锁</h4>
+<p>首先，在Zookeeper当中创建一个持久节点ParentLock。当第一个客户端想要获得锁时，需要在ParentLock这个节点下面创建一个临时顺序节点 Lock1。
+之后，Client1查找ParentLock下面所有的临时顺序节点并排序，判断自己所创建的节点Lock1是不是顺序最靠前的一个。如果是第一个节点，则成功获得锁。
+这时候，如果再有一个客户端 Client2 前来获取锁，则在ParentLock下载再创建一个临时顺序节点Lock2。
+Client2查找ParentLock下面所有的临时顺序节点并排序，判断自己所创建的节点Lock2是不是顺序最靠前的一个，结果发现节点Lock2并不是最小的。
+于是，Client2向排序仅比它靠前的节点Lock1注册Watcher，用于监听Lock1节点是否存在。这意味着Client2抢锁失败，进入了等待状态。
+这时候，如果又有一个客户端Client3前来获取锁，则在ParentLock下载再创建一个临时顺序节点Lock3。
+Client3查找ParentLock下面所有的临时顺序节点并排序，判断自己所创建的节点Lock3是不是顺序最靠前的一个，结果同样发现节点Lock3并不是最小的。
+于是，Client3向排序仅比它靠前的节点Lock2注册Watcher，用于监听Lock2节点是否存在。这意味着Client3同样抢锁失败，进入了等待状态。
+这样一来，Client1得到了锁，Client2监听了Lock1，Client3监听了Lock2。这恰恰形成了一个等待队列，很像是Java当中ReentrantLock所依赖的AQS（AbstractQueuedSynchronizer）。</p>
+
+<h4 id="释放锁">释放锁</h4>
+<p>释放锁分为两种情况：
+1.任务完成，客户端显示释放
+当任务完成时，Client1会显示调用删除节点Lock1的指令。
+2.任务执行过程中，客户端崩溃
+获得锁的Client1在任务执行过程中，如果Duang的一声崩溃，则会断开与Zookeeper服务端的链接。根据临时节点的特性，相关联的节点Lock1会随之自动删除。
+由于Client2一直监听着Lock1的存在状态，当Lock1节点被删除，Client2会立刻收到通知。这时候Client2会再次查询ParentLock下面的所有节点，确认自己创建的节点Lock2是不是目前最小的节点。如果是最小，则Client2顺理成章获得了锁。
+同理，如果Client2也因为任务完成或者节点崩溃而删除了节点Lock2，那么Client3就会接到通知。
+最终，Client3成功得到了锁。</p>
+
+<h2 id="zookeeper如何保证数据一致性">Zookeeper如何保证数据一致性</h2>
+<p>https://juejin.im/post/6844904163042656263</p>
+
+
+            </div>
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2021-02-09">09 Feb 2021</time></span>
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#系统架构设计">系统架构设计</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="/Kafka/"> &laquo; Kafka</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="/SystemDesign/">系统设计 &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first:
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+            </div>
+
+        </div>
+
+        <!-- Begin Footer
+================================================== -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                        <span id="busuanzi_container_site_pv" style='display:none'>本站总访问量：<span
+                                id="busuanzi_value_site_pv"></span>次</span>
+                        <span id="busuanzi_container_site_uv" style='display:none'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;本站总访客数：<span
+                                id="busuanzi_value_site_uv"></span>人</span>
+                    </div>
+                    <div class="col-md-6 col-sm-6 text-center text-lg-right">
+                        Copyright © 2021 我的博客
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer
+================================================== -->
+
+    </div>
+    <!-- /.site-content -->
+
+    <!-- Scripts
+================================================== -->
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="/assets/js/mediumish.js"></script>
+
+    
+
+    <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- 网站统计 -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</body>
+
+</html>

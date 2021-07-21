@@ -3,7 +3,6 @@ layout: post
 title:  "系统设计"
 author: wangbin
 categories: [ 系统架构设计 ]
-image: assets/images/13.jpg
 ---
 
 ## 1、高并发
