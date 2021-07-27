@@ -7,7 +7,7 @@ categories: [ 系统架构设计 ]
 
 ## 1、高并发
 
-https://snailclimb.gitee.io/javaguide/#/?id=%e9%ab%98%e5%b9%b6%e5%8f%91
+[系统设计高并发](https://snailclimb.gitee.io/javaguide/#/?id=高并发)
 
 ### 1.1、负载均衡
 根据节点负载情况，将客户端请求发送到不同的节点。常用的负载均衡算法如下：
@@ -41,7 +41,7 @@ https://snailclimb.gitee.io/javaguide/#/?id=%e9%ab%98%e5%b9%b6%e5%8f%91
 
 ## 2、高可用
 
-https://snailclimb.gitee.io/javaguide/#/?id=%e9%ab%98%e5%8f%af%e7%94%a8
+[系统设计高可用](https://snailclimb.gitee.io/javaguide/#/?id=高可用)
 
 ### 2.1 降级
 - 服务降级是指系统为了应对大量的请求，主动关闭部分功能，以此释放服务器资源从而保证核心功能可用。
@@ -49,7 +49,7 @@ https://snailclimb.gitee.io/javaguide/#/?id=%e9%ab%98%e5%8f%af%e7%94%a8
 
 ### 2.2 限流
 - 限流(Ratelimiting)是指对服务的请求进行限制，例如某一接口的请求限制为 100 个每秒,对超过限制的请求则进行快速失败或丢弃。
-- 常见限流算法（https://www.infoq.cn/article/Qg2tX8fyw5Vt-f3HH673）
+- 常见限流算法（[分布式服务限流实战，已经为你排好坑了](https://www.infoq.cn/article/Qg2tX8fyw5Vt-f3HH673)）
     - 漏桶算法
     - 令牌桶算法
 
@@ -63,7 +63,7 @@ https://snailclimb.gitee.io/javaguide/#/?id=%e9%ab%98%e5%8f%af%e7%94%a8
 ## 分布式系统如何保证一致性
 
 ## reactor模式
-https://cloud.tencent.com/developer/article/1488120
+[彻底搞懂Reactor模型和Proactor模型](https://cloud.tencent.com/developer/article/1488120)
 
 无论是C++还是Java编写的网络框架，大多数都是基于Reactor模型进行设计和开发，Reactor模型基于事件驱动，特别适合处理海量的I/O事件。
 

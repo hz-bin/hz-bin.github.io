@@ -3,6 +3,7 @@ layout: post
 title:  "算法框架模版"
 author: wangbin
 categories: [ 数据结构和算法 ]
+tags: [ 算法 ]
 ---
 
 ## BFS算法框架

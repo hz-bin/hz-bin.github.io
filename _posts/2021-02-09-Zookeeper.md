@@ -7,7 +7,8 @@ categories: [ 系统架构设计 ]
 
 ## 什么是Zookeeper
 
-https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653193977&idx=1&sn=12319f8cb81f55a40ac461bd0ad9d74e&chksm=8c99f423bbee7d35056ce7ec1b321f33aad15c309de6eba0086cb31a48b975ccb1d695d5a251&scene=21#wechat_redirect
+[漫画：什么是ZooKeeper？](https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653193977&idx=1&sn=12319f8cb81f55a40ac461bd0ad9d74e&chksm=8c99f423bbee7d35056ce7ec1b321f33aad15c309de6eba0086cb31a48b975ccb1d695d5a251&scene=21#wechat_redirect)
+
 
 - Zookeeper是一个分布式协调服务，可以在分布式系统中共享配置，协调锁资源，提供命名服务。
 - Zookeeper的数据模型很像数据结构当中的树，也很像文件系统的目录。
@@ -74,11 +75,11 @@ Zab协议既不是强一致性，也不是弱一致性，而是处于两者之�
 
 
 ## 什么是分布式锁
-http://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653194065&idx=1&sn=1baa162e40d48ce9b44ea5c4b2c71ad7&chksm=8c99f58bbbee7c9d5b5725da5ee38fe0f89d7a816f3414806785aea0fe5ae766769600d3e982&scene=21#wechat_redirect
+[漫画：什么是分布式锁？](http://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653194065&idx=1&sn=1baa162e40d48ce9b44ea5c4b2c71ad7&chksm=8c99f58bbbee7c9d5b5725da5ee38fe0f89d7a816f3414806785aea0fe5ae766769600d3e982&scene=21#wechat_redirect)
 - Redis分布式锁：`set keyname val ex 5 nx`，当keyname不存在时，设置key，过期时间是5秒
 
 ## 如何用Zookeeper实现分布式锁
-http://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653194140&idx=1&sn=07b65a50798c26ecdc0fc555128ab937&chksm=8c99f546bbee7c50b1642dc971cb1f5e244dce661546e141734797c8c23c6c3ad779dfb57d3b&scene=21#wechat_redirect
+[漫画：如何用Zookeeper实现分布式锁？](http://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653194140&idx=1&sn=07b65a50798c26ecdc0fc555128ab937&chksm=8c99f546bbee7c50b1642dc971cb1f5e244dce661546e141734797c8c23c6c3ad779dfb57d3b&scene=21#wechat_redirect)
 
 ### Znode分为四种类型：
 - 1.持久节点 （PERSISTENT）：默认的节点类型。创建节点的客户端与zookeeper断开连接后，该节点依旧存在 。
@@ -112,5 +113,5 @@ Client3查找ParentLock下面所有的临时顺序节点并排序，判断自己
 
 
 ## Zookeeper如何保证数据一致性
-https://juejin.im/post/6844904163042656263
+[Zookeeper 如何保证分布式系统数据一致性](https://juejin.im/post/6844904163042656263)
 

@@ -10,15 +10,15 @@ categories: [ 计算机基础知识 ]
 
 ## 1、OSI七层模型、TCP/IP四层
 
-|OSI七层模型|TCP/IP模型|功能|TCP/IP协议族|
-|---|---|---|---|
+| OSI七层模型 | TCP/IP模型 | 功能 | TCP/IP协议族 |
+| --- | --- | --- | --- |
 | 应用层 | 应用层 | 文件传输，电子邮件，文件服务，虚拟终端 | TFTP,HTTP:80,SNMP,FTP:21,SMTP:25,DNS:53,Telnet |
-| 表示层 |  | 数据格式化，代码转换，数据加密 | 没有协议 |
-| 会话层 |  | 接触或建立别的节点的联系 | 没有协议 |
+| 表示层 | - | 数据格式化，代码转换，数据加密 | 没有协议 |
+| 会话层 | - | 接触或建立别的节点的联系 | 没有协议 |
 | 传输层 | 传输层 | 提供端对端的接口 | TCP,UDP |
 | 网络层 | 网络层 | 为数据选择路由 | IP,ICMP,RIP,OSPF,BGP,IGMP |
 | 数据链路层 | 链路层 | 传输有地址的帧以及错误检测功能 | SLIP,CSLIP,PPP,ARP,RARP,MTU |
-| 物理层 |  | 以二进制数据形式在物理媒体上传输数据 | ISO2110,IEEE802,IEEE802.2 |
+| 物理层 | - | 以二进制数据形式在物理媒体上传输数据 | ISO2110,IEEE802,IEEE802.2 |
 
 什么是四层模型
 - 第一层：应用层，主要有负责web浏览器的HTTP协议， 文件传输的FTP协议，负责电子邮件的SMTP协议，负责域名系统的DNS等。
@@ -27,7 +27,8 @@ categories: [ 计算机基础知识 ]
 - 第四层：数据链路层，主要是负责转换数字信号和物理二进制信号。
 
 ## 2、TCP和UDP区别
-| | UDP | TCP |
+
+| - | UDP | TCP |
 |---|---|---|
 | 是否连接 | 无连接 | 面向连接 |
 | 是否可靠 | 不可靠传输，不使用流量控制和拥塞控制 | 可靠传输，使用流量控制和拥塞控制 |
@@ -76,7 +77,7 @@ CLOSE_WAIT：表示被动关闭，需要从程序本身出发。
 ESTABLISHED：表示正在通信
 ```
 
-- <u>**为什么A在TIME-WAIT状态必须等待2MSL的时间呢？这有两个理由。**</u>
+- **<u>为什么A在TIME-WAIT状态必须等待2MSL的时间呢？这有两个理由。</u>**
 - 第一，<u>为了保证A发送的最后一个ACK报文段能够到达B</u>。这个ACK报文段有可能丢失，因而使处在LAST-ACK状态的B收不到对已发送的FIN + ACK报文段的确认。B会超时重传这个FIN + ACK报文段，而A就能在2MSL时间内收到这个重传的FIN + ACK报文段。接着A重传一次确认，重新启动2MSL计时器。最后，A和B都正常进入到CLOSED状态。如果A在TIME-WAIT状态不等待一段时间，而是在发送完ACK报文段后立即释放连接，那么就无法收到B重传的FIN + ACK报文段，因而也不会再发送一次确认报文段。这样，B就无法按照正常步骤进入CLOSED状态。
 - 第二，防止上一节提到的“已失效的连接请求报文段”出现在本连接中。A在发送完最后一个ACK报文段后，再经过时间2MSL，就可以使本连接持续的时间内所产生的所有报文段都从网络中消失。这样就可以使下一个新的连接中不会出现这种旧的连接请求报文段。
 - B只要收到了A发出的确认，就进入CLOSED状态。同样，B在撤销相应的传输控制块TCB后，就结束了这次的TCP连接。我们注意到，B结束TCP连接的时间要比A早一些。
@@ -94,7 +95,7 @@ ESTABLISHED：表示正在通信
 
 
 ## 5、TCP如何保证可靠性
-https://juejin.im/post/6861491957534261255
+[『深入 TCP/IP 系列』一文搞懂 TCP 的可靠性](https://juejin.im/post/6861491957534261255)
 
 ### 5.1、差错控制
 - 差错控制的方法有：**校验和、确认应答、重传** 三种
@@ -165,7 +166,6 @@ https://juejin.im/post/6861491957534261255
 ## 9、DNS原理
 
 ### 9.1、DNS解析过程
-(https://www.jianshu.com/p/189311c71b0e)
 - 浏览器缓存：查看浏览器缓存的域名与IP的映射关系，如果有则解析成功。
 - 主机缓存：浏览器缓存没命中，查询主机DNS缓存。
 - LDNS（本地域名服务器）：本机缓存没命中，则查找本地域名服务器。
@@ -187,7 +187,7 @@ https://juejin.im/post/6861491957534261255
     - 客户端向DNS服务器查询域名，一般返回的内容都不超过512字节，用UDP传输即可。不用经过三次握手，这样DNS服务器负载更低，响应更快。理论上说，客户端也可以指定向DNS服务器查询时用TCP，但事实上，很多DNS服务器进行配置的时候，仅支持UDP查询包。
 
 ## 10、HTTP常见问题
-(https://mp.weixin.qq.com/s/amOya0M00LwpL5kCS96Y6w)
+[硬核！30 张图解 HTTP 常见的面试题](https://mp.weixin.qq.com/s/amOya0M00LwpL5kCS96Y6w)
 
 - HTTP 是超文本传输协议，也就是HyperText Transfer Protocol
 - HTTP 常见的状态码，有哪些？
@@ -236,6 +236,7 @@ Content-Type: text/html;charset=utf-8
 </body>
 </html>
 ```
+
 - HTTP有两种报文：请求报文和响应报文。
     - HTTP请求报文主要包括请求行、请求头部以及请求的数据（实体）三部分
         - 请求行（HTTP请求报文的第一行）：请求行由方法字段、URL字段和HTTP协议版本字段。其中，方法字段严格区分大小写，当前HTTP协议中的方法都是大写，方法字段如下介绍如下：
@@ -249,8 +250,8 @@ Content-Type: text/html;charset=utf-8
         - 响应体：响应的数据
 
 ## 11、什么是 HTTPS 协议
-- https://segmentfault.com/a/1190000012196642
-- http://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653197101&idx=1&sn=d1fe482561d3d079363032ec182c5b3b&chksm=8c99e1f7bbee68e10f8470453637a7d434751a9414ceeffbbb9601f5ae2ba64e26fa6a88a99b&scene=21#wechat_redirect
+- [解析HTTPS](https://segmentfault.com/a/1190000012196642)
+- [漫画：什么是 HTTPS 协议？](http://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653197101&idx=1&sn=d1fe482561d3d079363032ec182c5b3b&chksm=8c99e1f7bbee68e10f8470453637a7d434751a9414ceeffbbb9601f5ae2ba64e26fa6a88a99b&scene=21#wechat_redirect)
 - SSL（Secure Socket Layer，安全套接字层）
 - TLS（Transport Layer Security，传输层安全）
 

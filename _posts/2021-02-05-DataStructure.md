@@ -14,9 +14,9 @@ categories: [ 数据结构和算法 ]
 
 
 #### 排序算法
-https://www.cnblogs.com/onepixel/articles/7674659.html
+[十大经典排序算法（动图演示）](https://www.cnblogs.com/onepixel/articles/7674659.html)
 
-![image](https://note.youdao.com/yws/api/personal/file/WEB0546b15f74e6207df236ff5f025af575?method=download&shareKey=55a68a29e72221cec8c3aa37ded4b4b7)
+![image](/assets/images/排序算法.jpg)
 
 - [冒泡排序](http://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653194666&idx=1&sn=69ce32870c0b981c40b1e124fbb6bba8&chksm=8c99fb70bbee72668cad223892ad362525d215e7f936458f99dd289eb82981099359310e9e54&scene=21#wechat_redirect)
 - [快速排序](https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653195042&idx=1&sn=2b0915cd2298be9f2163cc90a3d464da&chksm=8c99f9f8bbee70eef627d0f5e5b80a604221abb3a1b5617b397fa178582dcb063c9fb6f904b3&scene=21#wechat_redirect)
@@ -117,9 +117,9 @@ public:
 - 链表、栈、队列、树(二叉树、平衡二叉树、红黑树、B树、B+树、哈夫曼树、字典树)、跳表、图
 
 #### AVL树、红黑树
-红黑树：https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653204996&idx=2&sn=ecf932d2db8cb6e4fcb841a2b6a5bfba&chksm=8c99c0debbee49c86dc8e82a2d195389a93e81d8e5ca8af7d4dd2eec5c7fe209038c91444964&scene=21#wechat_redirect
-B-树：https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653190965&idx=1&sn=53f78fa037386f85531832cd5322d2a0&chksm=8c9909efbbee80f90512f0c36356c31cc74c388c46388dc2317d43c8f8597298f233ca9c29e9&scene=21#wechat_redirect
-B+树：https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653191027&idx=1&sn=4ba22e3ec8bd149f69fc0aba72e4347e&chksm=8c9909a9bbee80bfa1d8497ff0525df130414c1731b5aa5287bf16ea1cf86c8d8e6f20782184&scene=21#wechat_redirect
+- 红黑树：[漫画：什么是红黑树？（整合版）](https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653204996&idx=2&sn=ecf932d2db8cb6e4fcb841a2b6a5bfba&chksm=8c99c0debbee49c86dc8e82a2d195389a93e81d8e5ca8af7d4dd2eec5c7fe209038c91444964&scene=21#wechat_redirect)
+- B-树：[漫画：什么是B-树？](https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653190965&idx=1&sn=53f78fa037386f85531832cd5322d2a0&chksm=8c9909efbbee80f90512f0c36356c31cc74c388c46388dc2317d43c8f8597298f233ca9c29e9&scene=21#wechat_redirect)
+- B+树：[漫画：什么是B+树？](https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653191027&idx=1&sn=4ba22e3ec8bd149f69fc0aba72e4347e&chksm=8c9909a9bbee80bfa1d8497ff0525df130414c1731b5aa5287bf16ea1cf86c8d8e6f20782184&scene=21#wechat_redirect)
 - AVL树（平衡二叉树）（AVL树得名于它的发明者G. M. Adelson-Velsky和E. M. Landis）本质上还是一棵二叉搜索树，它的特点是：
     - 1.本身首先是一棵二叉搜索树。
     - 2.带有平衡条件：每个结点的左右子树的高度之差的绝对值（平衡因子）最多为1。
@@ -149,7 +149,7 @@ B+树：https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653191027&idx=1&s
     - 3.所有叶子节点形成有序链表，便于范围查询。
 
 #### Hash表设计、一致性Hash
-一致性Hash：https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653191083&idx=1&sn=c68c8bb7e18c4d46b85666be10e9ef50&chksm=8c990971bbee80675b6cd0ac3c2c17546cd434c3636616e559ca5cf10d1815c3aed24bfd3c83&scene=21#wechat_redirect
+一致性Hash：[漫画：什么是一致性哈希？](https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653191083&idx=1&sn=c68c8bb7e18c4d46b85666be10e9ef50&chksm=8c990971bbee80675b6cd0ac3c2c17546cd434c3636616e559ca5cf10d1815c3aed24bfd3c83&scene=21#wechat_redirect)
 ###### Hash表设计：
 - 哈希函数的设计：对于构造哈希来说，主要包括直接地址法、平方取中法、除留余数法等
 - 解决哈希冲突

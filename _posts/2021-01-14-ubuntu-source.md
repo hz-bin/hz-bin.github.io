@@ -3,7 +3,7 @@ layout: post
 title:  "ubuntu 18.04 源更换"
 author: wangbin
 categories: [ Ubuntu ]
-tags: [Ubuntu]
+tags: [ Ubuntu ]
 ---
 
     cp /etc/apt/sources.list /etc/apt/sources.list.bak
