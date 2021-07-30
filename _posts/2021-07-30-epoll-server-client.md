@@ -3,7 +3,7 @@ layout: post
 title:  "epoll 使用示例"
 author: wangbin
 categories: [ 编程语言 ]
-tags: [ epoll ]
+tags: [ C++, epoll ]
 ---
 
 ## 服务端
