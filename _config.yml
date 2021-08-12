@@ -133,7 +133,7 @@ comments:
     repository  : https://github.com/hz-bin/hz-bin.github.io # GitHub repo
     owner       : hz-bin # GitHub repo owner
     admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
-      - "hz-bin"
+      - hz-bin
 
   ## Valine
   # please refer to https://valine.js.org/en/ for more info.
