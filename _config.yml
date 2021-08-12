@@ -130,7 +130,7 @@ comments:
   gitalk:
     clientID    : 1fb29fd12631761a2440 # GitHub Application Client ID
     clientSecret: c4d50a0051739528637acd2a4e28a51dda2e8c9e # GitHub Application Client Secret
-    repository  : https://github.com/hz-bin/hz-bin.github.io # GitHub repo
+    repository  : hz-bin.github.io # GitHub repo
     owner       : hz-bin # GitHub repo owner
     admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
       - hz-bin
