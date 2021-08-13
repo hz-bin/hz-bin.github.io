@@ -2,6 +2,8 @@
 title:  "计算机网络"
 author: wangbin
 categories: [ 计算机基础知识 ]
+key: k1612540800
+pageview: true
 ---
 
 ![image](/assets/images/tcp报文格式.jpg)

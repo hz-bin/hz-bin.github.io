@@ -3,6 +3,8 @@ title:  "ubuntu 18.04 源更换"
 author: wangbin
 categories: [ Ubuntu ]
 tags: [ Ubuntu, Linux ]
+key: k1610553600
+pageview: true
 ---
 
     cp /etc/apt/sources.list /etc/apt/sources.list.bak
