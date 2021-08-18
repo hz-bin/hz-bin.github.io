@@ -4,4 +4,16 @@
   {%- elsif site.analytics.provider == 'custom' -%}
     {%- include analytics-providers/custom.html -%}
   {%- endif -%}
+
+<!-- 百度统计 -->
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?4834a97a7ac279f4638f30df4d2668a7";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
 {%- endif -%}
